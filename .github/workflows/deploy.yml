@@ -25,13 +25,21 @@ jobs:
       run: cargo build --release
     - name: Run tests
       run: cargo test --verbose
-    - name: Upload the build artefact
+    - if: matrix.os == 'windows-latest'
+      name: Upload the build artefact
       uses: actions/upload-artifact@v2
       with:
         name: windows-binary
         path: target/release/wry_react_webpack_template.exe
-    - name: Upload the build artefact
+    - if: matrix.os == 'macos-latest'
+      name: Upload the build artefact
       uses: actions/upload-artifact@v2
       with:
         name: macos-binary
+        path: target/release/wry_react_webpack_template
+    - if: matrix.os == 'ubuntu-latest'
+      name: Upload the build artefact
+      uses: actions/upload-artifact@v2
+      with:
+        name: linux-binary
         path: target/release/wry_react_webpack_template
