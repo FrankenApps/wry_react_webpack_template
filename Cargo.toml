@@ -1,0 +1,12 @@
+[package]
+name = "wry_react_webpack_template"
+version = "0.1.0"
+authors = ["FrankenApps <de.frankenapps@gmail.com>"]
+edition = "2018"
+description = "A template to demonstrate the use of React and Webpack with wry."
+license = "MIT"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+wry = { git = "https://github.com/FrankenApps/wry", branch = "load-html" }

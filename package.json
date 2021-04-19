@@ -1,0 +1,30 @@
+{
+  "name": "wry_react_webpack_template",
+  "version": "0.1.0",
+  "description": "A template to demonstrate the use of React and Webpack with wry.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --config webpack.config.js"
+  },
+  "keywords": [
+    "tools"
+  ],
+  "author": "FrankenApps",
+  "license": "MIT",
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.3",
+    "@types/react-dom": "^17.0.3",
+    "@types/webpack": "^5.28.0",
+    "html-inline-script-webpack-plugin": "^2.0.0",
+    "html-webpack-plugin": "^5.3.1",
+    "ts-loader": "^8.1.0",
+    "typescript": "^4.2.4",
+    "webpack": "^5.33.2",
+    "webpack-cli": "^4.6.0"
+  }
+}
