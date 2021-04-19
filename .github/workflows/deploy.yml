@@ -1,0 +1,37 @@
+name: Deploy
+
+on:
+  workflow_dispatch:
+    
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+        
+    steps:
+    - uses: actions/checkout@v2
+    - if: matrix.os == 'ubuntu-latest'
+      # Install the requirements for building the gtkwebkit backend on Ubuntu.
+      run: 'sudo apt install libwebkit2gtk-4.0-dev'
+    - name: Build React
+      run: npm install && npm run build
+    - name: Build Rust
+      run: cargo build --release
+    - name: Run tests
+      run: cargo test --verbose
+    - name: Upload the build artefact
+      uses: actions/upload-artifact@v2
+      with:
+        name: windows-binary
+        path: target/release/wry_react_webpack_template.exe
+    - name: Upload the build artefact
+      uses: actions/upload-artifact@v2
+      with:
+        name: macos-binary
+        path: target/release/wry_react_webpack_template
