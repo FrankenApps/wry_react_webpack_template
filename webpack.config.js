@@ -1,6 +1,5 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -29,6 +28,5 @@ module.exports = {
             template: path.join(__dirname, 'src', 'index.html'),
             inject: 'body',
         }),
-        new HtmlInlineScriptPlugin(),
     ]
 }

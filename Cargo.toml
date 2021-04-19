@@ -9,4 +9,6 @@ license = "MIT"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-wry = { git = "https://github.com/FrankenApps/wry", branch = "load-html" }
+#wry = { git = "https://github.com/FrankenApps/wry", branch = "load-html" }
+rust-embed = "5.9.0"
+wry = "0.8.0"
