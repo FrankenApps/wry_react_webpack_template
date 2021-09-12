@@ -1,10 +1,11 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     mode: 'development',
     entry: {
-        app: path.join(__dirname, 'src', 'index.tsx')
+        app: path.join(__dirname, 'ui/src', 'index.tsx')
     },
     target: 'web',
     resolve: {
@@ -25,8 +26,15 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template: path.join(__dirname, 'src', 'index.html'),
+            template: path.join(__dirname, 'ui', 'index.html'),
             inject: 'body',
         }),
+        new CopyWebpackPlugin({
+            patterns: [
+                { 
+                    from: path.join(__dirname, 'ui/static'),
+                }
+            ]
+        })
     ]
 }

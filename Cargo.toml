@@ -6,9 +6,15 @@ edition = "2018"
 description = "A template to demonstrate the use of React and Webpack with wry."
 license = "MIT"
 
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
-
 [dependencies]
-#wry = { git = "https://github.com/FrankenApps/wry", branch = "load-html" }
+rfd = "0.4.0"
 rust-embed = "5.9.0"
-wry = "0.8.0"
+serde = { version = "1.0.126", features = ["derive"] }
+serde_json = "1.0.64"
+wry = "0.12.2"
+
+[profile.release]
+opt-level = 'z'  # Optimize for size.
+lto = true
+codegen-units = 1
+panic = "abort"  # Customers do not need a stacktrace.

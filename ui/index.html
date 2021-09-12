@@ -1,13 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>React Typescript Webpack</title>
 </head>
+
 <body>
     <!-- React app root element -->
     <div id="root"></div>
+
+    <!-- Here we inject a global function in order to make JSON RPC calls from Typescript. -->
+    <script>
+        async function wry(title, message) {
+            const result = await rpc.call(title, message);
+            return result;
+        }
+    </script>
 </body>
+
 </html>
